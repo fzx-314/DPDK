@@ -10,13 +10,15 @@ git clone http://dpdk.org/git/dpdk (For a particular version directly download t
 
 #get ready 
 cd dpdk
-make install T=x86_64-native-linuxapp-gcc (Ignore DESTDIR ERROR) (Hope it works )
+make defconfig && make or
+make install T=x86_64-native-linuxapp-gcc (Ignore DESTDIR ERROR) 
+
 make
 #in case its not working go to build directory and recreate this steps
 
 #Configure hugepages 
 echo 1024 | sudo tee /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
-sudo mkdir /mnt/huge
+sudo mkdir /mnt/huge 
 sudo mount -t hugetlbfs nodev /mnt/huge
 
 # now in order to make any file this steps are required (I forgot reason for this steps )
@@ -28,4 +30,4 @@ exit
 
 # make files
 make (to make your own project)
-sudo ./build/project name (if everything is correct you successfully executed your project )
+sudo ./build/project_name (if everything is correct you successfully executed your project )
