@@ -1,33 +1,33 @@
 # Following are steps to install DPDK on ubuntu (No guarantee that it will work )
 
 #basic steps
-sudo apt-get update
-sudo apt-get install git-build-essentials linux-headers-`uname -r`
+sudo apt-get update`
 apt-get install libnuma-dev
 
 #Get DPDK 
 git clone http://dpdk.org/git/dpdk (For a particular version directly download tar file from http://core.dpdk.org/download/)
 
 #get ready 
-cd dpdk
-make defconfig && make or
-make install T=x86_64-native-linuxapp-gcc (Ignore DESTDIR ERROR) 
+cd dpdkindpepndent
+make install T=x86_64-native-linuxapp-gcc (Ignore DESTDIR ERROR) or
+make defconfig && make
 
-make
-#in case its not working go to build directory and recreate this steps
 
-#Configure hugepages 
+
+#Configure hugepages (needed everytime before running any app)
+sudo su
 echo 1024 | sudo tee /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+
+Optional config.
 sudo mkdir /mnt/huge 
 sudo mount -t hugetlbfs nodev /mnt/huge
 
-# now in order to make any file this steps are required (I forgot reason for this steps )
+# now in order to make any file this steps are required (need before every compilation)
 export RTE_SDK=/your path to dpdk/dpdk  (Path to your DPDK folder)
-export RTE_TARGET=x86_64-native-linuxapp-gcc (or icc)
-sudo su
-export RTE_TARGET=x86_64-native-linuxapp-gcc
-exit
+export RTE_TARGET=x86_64-native-linuxapp-gcc (architecture and complier may cahnge see dpdk support)
 
 # make files
 make (to make your own project)
 sudo ./build/project_name (if everything is correct you successfully executed your project )
+
+example once you completed, 
