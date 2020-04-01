@@ -9,8 +9,7 @@ git clone http://dpdk.org/git/dpdk (For a particular version directly download t
 
 #get ready 
 cd dpdkindpepndent
-make install T=x86_64-native-linuxapp-gcc (Ignore DESTDIR ERROR) or
-make defconfig && make
+make install T=x86_64-native-linuxapp-gcc (Ignore DESTDIR ERROR)
 
 
 
