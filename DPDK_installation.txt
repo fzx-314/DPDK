@@ -1,4 +1,5 @@
-# Following are steps to install DPDK on ubuntu (No guarantee that it will work )
+# Following are steps to install DPDK on ubuntu
+DISCLAIMER : (No guarantee that it will work )
 
 #basic steps
 sudo apt-get update`
